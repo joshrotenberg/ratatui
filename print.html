@@ -293,6 +293,20 @@ pressing <code>q</code>.</p>
 <p>You can also run all examples by running <code>cargo make run-examples</code> (requires <code>cargo-make</code> that can
 be installed with <code>cargo install cargo-make</code>).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="canvas"><a class="header" href="#canvas">Canvas</a></h1>
+<p>Canvas details and examples ...</p>
+<p>Discussion about <a href="https://github.com/ratatui-org/ratatui/blob/main/examples/canvas.rs">examples/canvas.rs</a> ...</p>
+<pre><code class="language-rust">    let canvas = Canvas::default()
+        .block(Block::default().borders(Borders::ALL).title(&quot;World&quot;))
+        .marker(app.marker)
+        .paint(|ctx| {
+            ctx.draw(&amp;Map {
+                color: Color::White,
+                resolution: MapResolution::High,
+            });
+            ctx.print(app.x, -app.y, &quot;You are here&quot;.yellow());
+        })
+        .x_bounds([-180.0, 180.0])
+        .y_bounds([-90.0, 90.0]);</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="barchart"><a class="header" href="#barchart">BarChart</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="block"><a class="header" href="#block">Block</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="calendar"><a class="header" href="#calendar">Calendar</a></h1>
@@ -447,7 +461,7 @@ termion = { version = &quot;2.0&quot; }
 crossterm = { version = &quot;0.26.1&quot; }
 </code></pre>
 <h2 id="support-both-tui-and-ratatui"><a class="header" href="#support-both-tui-and-ratatui">Support both tui and ratatui</a></h2>
-<p>For more complex scenarios where a library (or in some cases an app) needs to support both ratatui and maintain existing support for tui, it may be feasible to use feature flags to select whih library to use. See <a href="https://github.com/gin66/tui-logger">tui-logger</a> for an example of this approach.</p>
+<p>For more complex scenarios where a library (or in some cases an app) needs to support both ratatui and maintain existing support for tui, it may be feasible to use feature flags to select which library to use. See <a href="https://github.com/gin66/tui-logger">tui-logger</a> for an example of this approach.</p>
 <h2 id="version-comparison"><a class="header" href="#version-comparison">Version comparison</a></h2>
 <p>The changes between versions are documented in the project's <a href="https://github.com/tui-rs-revival/ratatui/blob/main/CHANGELOG.md">CHANGELOG</a></p>
 <details>

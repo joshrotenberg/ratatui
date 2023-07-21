@@ -153,6 +153,20 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="canvas"><a class="header" href="#canvas">Canvas</a></h1>
+<p>Canvas details and examples ...</p>
+<p>Discussion about <a href="https://github.com/ratatui-org/ratatui/blob/main/examples/canvas.rs">examples/canvas.rs</a> ...</p>
+<pre><code class="language-rust">    let canvas = Canvas::default()
+        .block(Block::default().borders(Borders::ALL).title(&quot;World&quot;))
+        .marker(app.marker)
+        .paint(|ctx| {
+            ctx.draw(&amp;Map {
+                color: Color::White,
+                resolution: MapResolution::High,
+            });
+            ctx.print(app.x, -app.y, &quot;You are here&quot;.yellow());
+        })
+        .x_bounds([-180.0, 180.0])
+        .y_bounds([-90.0, 90.0]);</code></pre>
 
                     </main>
 
